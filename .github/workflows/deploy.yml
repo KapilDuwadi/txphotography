@@ -1,0 +1,24 @@
+name: Deploy Site
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Configure pages
+      - run: npm run build
+      - run: cd out 
+      - run: echo 'txphotography.us' > CNAME
+      - run: touch .nojekyll
+      - run: cd ..
+      - run: gh-pages -d out -t true
+        
