@@ -17,7 +17,7 @@ jobs:
       - name: Build Website
         run: |
           npm install
-          npm i gh-pages
+          npm install -g gh-pages
           npm run build
           cd out 
           echo 'txphotography.us' > CNAME
