@@ -1,28 +1,37 @@
-name: Deploy Website
+name: Deploy Next.js Website
 
 on:
   push:
-    branches: ["main"]
+    branches:
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4
-      - name: Setup Node Environment
-        uses: actions/setup-node@v4
+        uses: actions/checkout@v2
+      
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2
         with:
-          node-version: "20"
-      - name: Build Website
+          node-version: '20'
+      
+      - name: Install dependencies
+        run: npm install
+      
+      - name: Build
+        run: npm run build
+      
+      - name: Prepare Deployment
         run: |
-          npm install
-          npm install -g gh-pages
-          npm run build
-          cd out 
-          git config --global user.email "you@example.com"
-          git config --global user.name "Your Name"
+          cd out
           echo 'txphotography.us' > CNAME
-          touch .nojekyll
-          cd ..
-          gh-pages -d out -t true
+      
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./out
+          cname: txphotography.us
