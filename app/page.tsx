@@ -22,9 +22,9 @@ const handleSubmit = async (event: any, setError: any) => {
       method: 'POST',
       body: formData,
     }).then((_) => {
-      window.location.href = 'https://photos.google.com/share/AF1QipO9V47MUYNsCKjkKb5R7r-C8TsQAiq20jq0DZhGOMQ8gaYIxVBEWMtElHX5ZKe6AQ?key=OGt2N3J4d3huVXdhOWhtY3IxNV9HRjhuWTRINEln'
+      window.location.href = 'https://txphotography.us/'
     }).catch((_) => {
-      window.location.href = 'https://photos.google.com/share/AF1QipO9V47MUYNsCKjkKb5R7r-C8TsQAiq20jq0DZhGOMQ8gaYIxVBEWMtElHX5ZKe6AQ?key=OGt2N3J4d3huVXdhOWhtY3IxNV9HRjhuWTRINEln'
+      window.location.href = 'https://txphotography.us/'
     });
 
   } else {
