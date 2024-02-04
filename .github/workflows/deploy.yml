@@ -20,6 +20,8 @@ jobs:
           npm install -g gh-pages
           npm run build
           cd out 
+          git config --global user.email "you@example.com"
+          git config --global user.name "Your Name"
           echo 'txphotography.us' > CNAME
           touch .nojekyll
           cd ..
