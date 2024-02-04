@@ -15,7 +15,9 @@ jobs:
         with:
           node-version: "20"
       - name: Build Website
-        run: npm run build
+        run: |
+          npm install
+          npm run build
       - name: Prepare Deployment
         run: |
           cd out 
