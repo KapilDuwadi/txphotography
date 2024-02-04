@@ -19,10 +19,8 @@ jobs:
           npm install
           npm i gh-pages
           npm run build
-      - name: Prepare Deployment
-        run: |
           cd out 
           echo 'txphotography.us' > CNAME
           touch .nojekyll
-      - name: Deploy to GitHub Pages
-        run: gh-pages -d out -t true
+          cd ..
+          gh-pages -d out -t true
